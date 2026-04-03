@@ -1,0 +1,104 @@
+💰 Finance Tracker Backend (MERN Stack)
+
+A scalable backend system for managing personal finance records (income & expenses) with secure authentication and RESTful APIs.
+
+🚀 Features
+🔐 User Authentication (JWT आधारित login/signup)
+👤 User Profile Management
+💰 Add / Update / Delete Financial Records
+📊 Track Income & Expenses
+🛡️ Protected Routes with Middleware
+🌐 RESTful API Design
+🛠️ Tech Stack
+Backend: Node.js, Express.js
+Database: MongoDB (Atlas Cluster)
+Authentication: JWT (JSON Web Token)
+Other Tools: Mongoose, dotenv, CORS
+📂 Project Structure
+finance-backend/
+│
+├── config/
+│   └── db.js              # MongoDB connection
+│
+├── routes/
+│   ├── auth.js           # Auth routes
+│   ├── users.js          # User routes
+│   └── records.js        # Finance records routes
+│
+├── models/
+│   ├── User.js
+│   └── Record.js
+│
+├── middleware/
+│   └── authMiddleware.js
+│
+├── .env
+├── server.js
+└── package.json
+⚙️ Environment Variables
+
+Create a .env file in root:
+
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+▶️ Run Locally
+1. Clone Repo
+git clone https://github.com/your-username/finance-backend.git
+cd finance-backend
+2. Install Dependencies
+npm install
+3. Start Server
+npm run dev
+
+Server will run on:
+
+http://localhost:5000
+🔗 API Endpoints
+🔐 Auth Routes
+Register
+POST /api/auth/register
+{
+  "name": "Rupam Giri",
+  "email": "rupam@gmail.com",
+  "password": "123456"
+}
+Login
+POST /api/auth/login
+👤 User Routes
+Get Profile
+GET /api/users/profile
+
+Headers:
+
+Authorization: Bearer TOKEN
+💰 Record Routes
+Add Record
+POST /api/records
+Get All Records
+GET /api/records
+Update Record
+PUT /api/records/:id
+Delete Record
+DELETE /api/records/:id
+🔒 Authentication
+Uses JWT token-based authentication
+Protected routes require:
+Authorization: Bearer <token>
+🧪 Testing
+Tested using Postman
+Verified:
+Authentication flow
+CRUD operations
+Error handling
+📌 Future Improvements
+📊 Dashboard (Total income/expense)
+📅 Date-wise filtering
+📈 Analytics & charts
+🧾 Export reports (PDF/CSV)
+👨‍💻 Author
+
+Rupam Giri
+
+Full Stack Developer (MERN)
+Interested in Backend Development & Scalable Systems

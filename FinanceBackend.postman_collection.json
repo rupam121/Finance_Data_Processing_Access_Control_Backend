@@ -1,0 +1,88 @@
+{
+  "info": {
+    "name": "Finance Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "finance-backend-collection"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type","value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Admin User\",\n  \"email\": \"admin@example.com\",\n  \"password\": \"123456\",\n  \"role\": \"admin\"\n}"
+        },
+        "url": {"raw": "http://localhost:5000/api/auth/register", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","auth","register"]}
+      }
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type","value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {"raw": "http://localhost:5000/api/auth/login", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","auth","login"]}
+      }
+    },
+    {
+      "name": "Create Record",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type","value": "application/json"},
+          {"key": "Authorization","value": "Bearer {{token}}"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 5000,\n  \"type\": \"income\",\n  \"category\": \"Salary\",\n  \"notes\": \"March salary\"\n}"
+        },
+        "url": {"raw": "http://localhost:5000/api/records", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","records"]}
+      }
+    },
+    {
+      "name": "Get Records",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Authorization","value": "Bearer {{token}}"}],
+        "url": {"raw": "http://localhost:5000/api/records", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","records"]}
+      }
+    },
+    {
+      "name": "Get Dashboard Summary",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Authorization","value": "Bearer {{token}}"}],
+        "url": {"raw": "http://localhost:5000/api/records/summary", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","records","summary"]}
+      }
+    },
+    {
+      "name": "Update Record",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {"key": "Content-Type","value": "application/json"},
+          {"key": "Authorization","value": "Bearer {{token}}"}
+        ],
+        "body": {"mode": "raw","raw": "{\n  \"amount\": 5500,\n  \"notes\": \"Updated March salary\"\n}"},
+        "url": {"raw": "http://localhost:5000/api/records/{{recordId}}", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","records","{{recordId}}"]}
+      }
+    },
+    {
+      "name": "Delete Record",
+      "request": {
+        "method": "DELETE",
+        "header": [{"key": "Authorization","value": "Bearer {{token}}"}],
+        "url": {"raw": "http://localhost:5000/api/records/{{recordId}}", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api","records","{{recordId}}"]}
+      }
+    }
+  ],
+  "variable": [
+    {"key": "token", "value": ""},
+    {"key": "recordId", "value": ""}
+  ]
+}
